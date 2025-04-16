@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}🎬 YouTube Downloader{% endblock %}
+
+{% block body %}
+<div class="titulo-site">
+    <h1>🎬 YouTube Downloader</h1>
+    <p>📥 Baixe seus vídeos favoritos com facilidade e rapidez</p>
+</div>
+
+<div class="container d-flex justify-content-center mt-5">
+    <div class="card shadow-lg border-0 p-4" style="width: 100%; max-width: 600px;">
+        <div class="card-body">
+            <h3 class="card-title text-center mb-4 text-primary">Insira o link do vídeo</h3>
+            <form action="{{ url_for('home') }}" method="POST">
+                {{ form_link.csrf_token }}
+                <div class="mb-3">
+                    {{ form_link.link.label(class="form-label") }}
+                    {{ form_link.link(class="form-control form-control-lg", placeholder="Cole o link do YouTube aqui...") }}
+                </div>
+                <div class="text-center">
+                    {{ form_link.botao_submit(class="btn btn-danger btn-lg") }}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
